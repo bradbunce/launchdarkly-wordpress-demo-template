@@ -1,0 +1,31 @@
+<?php
+require '/var/www/wordpress/wp-content/themes/astra-customized/vendor/autoload.php';
+
+# Set $sdkKey to your LaunchDarkly SDK key before running
+$sdkKey = "YOUR-SDK-KEY";
+
+# Set $featureFlagFey to the feature flag key you want to evaluate
+$flagKey = "php-test-flag";
+
+if (!$sdkKey) {
+  echo "*** Please edit index.php to set $sdkKey to your LaunchDarkly SDK key first\n\n";
+  exit(1);
+}
+
+$client = new LaunchDarkly\LDClient($sdkKey);
+
+# Set up the evaluation context. This context should appear on your LaunchDarkly
+# contexts dashboard soon after you run the demo.
+$context = LaunchDarkly\LDContext::builder("9198028222")
+  ->name("Brad")
+  ->build();
+
+$flagValue = $client->variation($flagKey, $context, false);
+$flagValueStr = $flagValue ? 'TRUE' : 'FALSE';
+
+echo "<br>This page is a simle demo of the <b>LaunchDarkly PHP SDK</b>.<br>";
+echo "<br>When you toggle the <b>$flagKey</b> feature flag, the evaluation result will change within milliseconds on the WordPress server.<br>";
+echo "Request this page again after you toggle the <b>$flagKey</b> and the WordPress server will change the variation that is rendered.<br>";
+echo "<br>The result of the evaluation from your <b>LaunchDarkly</b> feature flag <b>$flagKey</b> is currently: <b>$flagValueStr</b>";                 
+
+?>
