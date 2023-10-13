@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdoc>
+  <parser>
+    <target>docs/build/temp</target>
+  </parser>
+  <transformer>
+    <target>docs/build/html</target>
+  </transformer>
+  <files>
+    <directory>src</directory>
+    <ignore>src/LaunchDarkly/Impl/*</ignore>
+    <ignore>src/LaunchDarkly/Impl/Integrations/*</ignore>
+  </files>
+  <transformations>
+    <template name="clean"/>
+  </transformations>
+  <title>
+    LaunchDarkly PHP SDK
+  </title>
+</phpdoc> 

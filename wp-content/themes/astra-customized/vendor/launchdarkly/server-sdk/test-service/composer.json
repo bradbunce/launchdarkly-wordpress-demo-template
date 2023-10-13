@@ -1,0 +1,25 @@
+{
+  "repositories": [
+    {
+      "type": "path",
+      "url": ".."
+    }
+  ],
+  "require": {
+    "doctrine/cache": "^1.0",
+    "guzzlehttp/guzzle": "^7",
+    "kevinrob/guzzle-cache-middleware": "^4.0",
+    "launchdarkly/server-sdk": "*",
+    "mikecao/flight": "^2",
+    "monolog/monolog": "^2",
+    "php": ">=8.0",
+    "psr/log": "1.*"
+  },
+  "autoload": {
+      "psr-4": {
+          "Tests\\": "."
+      }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
