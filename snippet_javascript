@@ -1,0 +1,35 @@
+<div id="main">
+	<div id="leftside">
+		<p id="demo"></p>
+		<script>
+			// Set clientSideID to your LaunchDarkly client-side ID
+      const clientSideID = 'YOUR-CLIENTSIDE-ID';
+
+      // Set flagKey to the feature flag key you want to evaluate
+      const flagKey = 'javascript-test-flag';
+
+      // Set up the context properties. This context should appear on your
+      // LaunchDarkly contexts dashboard soon after you run the demo.
+      const context = {
+        kind: 'user',
+        key: 'put-your-key-value-here',
+        name: 'put-your-name-here'
+      };
+			const ldclient = LDClient.initialize(clientSideID, context);
+                               
+                function testFeature() {
+                  var showFeature = ldclient.variation(flagKey, false);
+                  var result = showFeature.toString();
+                  var eval_result = result.toUpperCase();
+                  document.getElementById("demo").innerHTML = "<br>This page is a simle demo of the <b>LaunchDarkly JavaScript SDK</b>.<br> \
+                  <br>The <b>LaunchDarkly JavaScript SDK</b> client has been set to receive streaming updates \
+                  without having to refresh this page in the broswer.<br> \
+                  <br>When you toggle the <b>" + flagKey + "</b> feature flag, the evaluation result will change within milliseconds.<br> \
+                  <br>The result of the evaluation from your <b>LaunchDarkly</b> feature flag <b>" + flagKey + "</b> is currently: <b>" + eval_result + "</b>";
+                };
+    
+                ldclient.on('ready', testFeature);
+                ldclient.on('change', testFeature);
+            </script>
+		</div>
+</div>
