@@ -16,8 +16,8 @@ $client = new LaunchDarkly\LDClient($sdkKey);
 
 # Set up the evaluation context. This context should appear on your LaunchDarkly
 # contexts dashboard soon after you run the demo.
-$context = LaunchDarkly\LDContext::builder("9198028222")
-  ->name("Brad")
+$context = LaunchDarkly\LDContext::builder("put-your-context-key-here")
+  ->name("put-your-name-here")
   ->build();
 
 $flagValue = $client->variation($flagKey, $context, false);
