@@ -23,7 +23,7 @@ $context = LaunchDarkly\LDContext::builder("put-your-context-key-here")
 $flagValue = $client->variation($flagKey, $context, false);
 $flagValueStr = $flagValue ? 'TRUE' : 'FALSE';
 
-echo "<br>This page is a simle demo of the <b>LaunchDarkly PHP SDK</b>.<br>";
+echo "<br>This page is a simple demo of the <b>LaunchDarkly PHP SDK</b>.<br>";
 echo "<br>When you toggle the <b>$flagKey</b> feature flag, the evaluation result will change within milliseconds on the WordPress server.<br>";
 echo "Request this page again after you toggle the <b>$flagKey</b> and the WordPress server will change the variation that is rendered.<br>";
 echo "<br>The result of the evaluation from your <b>LaunchDarkly</b> feature flag <b>$flagKey</b> is currently: <b>$flagValueStr</b>";                 
