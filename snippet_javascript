@@ -21,7 +21,7 @@
                   var showFeature = ldclient.variation(flagKey, false);
                   var result = showFeature.toString();
                   var eval_result = result.toUpperCase();
-                  document.getElementById("demo").innerHTML = "<br>This page is a simle demo of the <b>LaunchDarkly JavaScript SDK</b>.<br> \
+                  document.getElementById("demo").innerHTML = "<br>This page is a simple demo of the <b>LaunchDarkly JavaScript SDK</b>.<br> \
                   <br>The <b>LaunchDarkly JavaScript SDK</b> client has been set to receive streaming updates \
                   without having to refresh this page in the broswer.<br> \
                   <br>When you toggle the <b>" + flagKey + "</b> feature flag, the evaluation result will change within milliseconds.<br> \
